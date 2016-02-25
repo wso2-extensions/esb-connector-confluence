@@ -1,4 +1,4 @@
-### confluence ESB Connector
+### Confluence ESB Connector
 The Confluence connector allows you to connect to Confluence, an online team collaboration software. The connector uses the Confluence 5.4.3 SOAP API to connect to confluence, manage users and groups, change global/space permissions, manage labels and more.
 
 ### Build
