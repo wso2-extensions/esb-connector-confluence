@@ -133,9 +133,9 @@
         </dependency>
     </dependencies>
     <scm>
-        <connection>scm:git:https://github.com/ykalyani/esb-connector-confluence.git</connection>
-        <url>https://github.com/ykalyani/esb-connector-confluence.git</url>
-        <developerConnection>scm:git:https://github.com/ykalyani/esb-connector-confluence.git</developerConnection>
+        <connection>scm:git:https://github.com/wso2-extensions/esb-connector-confluence.git</connection>
+        <url>https://github.com/wso2-extensions/esb-connector-confluence.git</url>
+        <developerConnection>scm:git:https://github.com/wso2-extensions/esb-connector-confluence.git</developerConnection>
         <tag>HEAD</tag>
     </scm>
     <build>
