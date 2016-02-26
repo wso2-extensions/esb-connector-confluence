@@ -134,11 +134,12 @@
         </dependency>
     </dependencies>
     <scm>
-        <connection>scm:git:https://github.com/wso2-extensions/esb-connector-confluence.git
+        <connection>
+            scm:git:https://github.com/wso2-extensions/esb-connector-confluence.git
         </connection>
         <url>https://github.com/wso2-extensions/esb-connector-confluence.git</url>
         <developerConnection>
-            scm:git:https://github.com/wso2-extensions/esb-connector-confluence.git
+            scm:git:https://github.com/wso2-extensions/esb-connector-confluence
         </developerConnection>
         <tag>HEAD</tag>
     </scm>
