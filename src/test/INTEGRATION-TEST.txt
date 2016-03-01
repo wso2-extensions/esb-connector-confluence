@@ -7,66 +7,60 @@ Pre-requisites:
  - The org.wso2.esb.integration.integration-base project is required. The test suite has been configured to download this project automatically. If the automatic download fails, download the following project and compile it using the mvn clean install command to update your local repository:
         https://github.com/wso2-extensions/esb-integration-base
 
-Tested Platform:
+Tested Platform: 
 
- - Ubuntu 12.04, Mac OSx 10.9
+ - Microsoft WINDOWS V-7
+ - UBUNTU 13.04
  - WSO2 ESB 4.9.0
  - Java 1.7
+ - Confluence 5.9.1
 
-STEPS:
-1. Download ESB 4.9.0 and copy the wso2esb-4.9.0.zip in to location "{ESB_Connector_Home}/repository/".
+Steps to follow in setting integration test.
 
-2. Update connector properties file "confluence.properties" located in "{Confluence_Connector_Home}/src/test/resources/artifacts/ESB/connector/config/",
-with following information.
+ 1. Download ESB 4.9.0 from official website.
 
-	-username= Admin username of the Confluence instance
-	-password= Password of the admin user
-	-uri= Confluence instance URL
-	-spaceId=Create new space and give the space ID
-	-pageID=Create new Page and give the Page ID
-	-attachment= Add an attachment and give the attachment file name
-	-versionNumber=Give the version number of the above page
-	-blogPageId=Create a blog article and give the page ID
-	-lable= Create a new lable and give the lable name
-	-pageManagementPosition= Give a valid position (Ex:append)
-	-permissionPermit=Valid permission (Ex:VIEWSPACE)
-	-entity=Create a group and give the group name
-	-userName=Create a new user and give the username
-	-groupName=Create a group and give the group name
-	-removePageID=Create new page and give the page ID
-	-removeSpaceID= Create a new Space and give the space ID
-	-removeAttachment= Add new attachment and give the attachment file name
-	-movePageID=Create new page and add the page ID
-	-moveTargetPageID=Create new Page and give the page ID
-	-movePageID2=Create new page and give the page ID
-	-removePermissiongroup= Add new group and and give the group name
-	-removePermissionSpace=Add new Space and give the space ID
-	-removePermissionEntity= Add new entity (user or a group) and give the name
-	-removeUsername=Add new user and give the username
-	-removeGroup=Add new group and give the group name
-	-deactivateUser=Add new user and give the username
+ 2. Navigate to "https://www.atlassian.com/software/confluence/download/" URL and download Confluence. Use the below URL to setup Confluence.
+      https://confluence.atlassian.com/doc/confluence-installation-guide-135681.html
+      
+ 3. If required add the X.509 certificate from "https://confluence.atlassian.com" to the client-truststore.jks of the ESB located in "<ESB_HOME>/repository/resources/security" directory
+    and wso2carbon.jks located in "<CONFLUENCE_CONNECTOR_HOME>/confluence-connector/confluence-connector-2.0.0/org.wso2.carbon.connector/src/test/resources/keystores/products".
+      
+ 4. Prerequisites for Confluence Connector Integration Testing.
+      i) Add a new user to Confluence account by using the below URL instructions. Keep the username and password for further reference.
+         https://confluence.atlassian.com/doc/add-users-and-set-permissions-349635148.html
+      
+      ii) Navigate to 'Spaces> Create space' in confluence dashboard and create a new space. Keep the Space key for further reference.
+      
+      iii) Click the 'Create' button and create a new page with page title to the same space created in step 5 ii). Keep the page title for further reference.
+      
+      iv) Click the 'Create' button and create a new page with page title to the same space created in step 5 ii). Keep the page ID (content ID) and title for further reference.
+      
+      v)  Click the 'Create' button and create a new page with page title to the same space created in step 5 ii). And add at least two child pages to the parent page. Keep the parent page ID (content ID) and title for further reference.
 
-3. Give random values to the following properties. These are mostly to be used for negative test cases. In most cases no need to change these values.
+      vi) Click the 'Create' button and create a new page with page title to the same space created in step 5 ii). And add at least two comments to created page. Keep the page ID (content ID) and title for further reference.
+ 
+      vii) Click the 'Create' button and create a new page with page title and file attachment to the same space created in step 5 ii). And add at least two comments to created page. Keep the page ID (content ID) and title for further reference.
+ 
+      NOTE: To obtian page ID (content ID), click page edit link and get page ID from browser URL.
+ 
+ 5. Compress modified ESB as wso2esb-4.9.0.zip and copy that zip file in to location "<ESB_CONNECTOR_HOME>/repository/".
+ 
+ 6. Update the Confluence properties file at location "<CONFLUENCE_CONNECTOR_HOME>/confluence-connector/confluence-connector-2.0.0/org.wso2.carbon.connector/src/test/resources/artifacts/ESB/connector/config" as below.
 
-	-invalidGroupName
-	-invalidUserName
-	-invalidSpaceId
-	-permissionInvalidPermit
-	-invalidLable
-	-invalidPageID
-	-invalidAttachment
-	-invalidPassword
-	-addgroupGroupName
-	-addUserEmail
-	-addUserFullName
-	-addUserUserName
-	-addUserURL
-	-addUserPassword
-	-addUserPassword2
-	-addGroupInvalidNames
-	-addUserEmailOptional
-	-addUserFullNameOptional
-	-addUserUserNameOptional
+   i)    apiUrl                     - Confluence account hosted domain in step 3 (e.g.: http://{CONFLUENCE_HOSTED_DOMAIN}). 
+   ii)   username                   - Use the created user's username in step 5 i).
+   iii)  password                   - Use the created user's password in step 5 i).
+   iv)   spaceKeyMand               - Use the space key created in step 5 ii).
+   v)    contentTitleOpt            - Use the created page title in step 5 iii).
+   vii)  contentTypeOpt             - Set the content type as 'page'.
+   viii) contentIdToUpdate          - Use the page ID (content ID) created in step 5 iv).
+   ix)   contentIdWithChildContents - Use the page ID (content ID) created in step 5 v).
+   x)    contentIdWithComments      - Use the page ID (content ID) created in step 5 vi).
+   xi)   contentIdWithAttachments   - Use the page ID (content ID) created in step 5 vii).
+   xii)  spaceNameMand              - String value to set space name with mandatory parameters.
+   xiii) spaceNameOpt               - String value to set space name with optional parameters.
+   xiv)  spaceDescription           - String value to set space description.
+   xv)   spaceDescRepresentation    - String value to set space description representation.
 
-4.  Navigate to "{Confluence_Connector_Home}/" and run the following command.
-      $ mvn clean install
+ 7. Navigate to "<CONFLUENCE_CONNECTOR_HOME>/" and run the following command.
+     $ mvn clean install

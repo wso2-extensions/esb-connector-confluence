@@ -1,4 +1,0 @@
-{
-"labelNamer":"%s",
-"spaceKey":"%s"
-}

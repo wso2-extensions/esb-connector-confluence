@@ -1,4 +1,0 @@
-{
-"contentId":"%s",
-"fileName":"%s"
-}

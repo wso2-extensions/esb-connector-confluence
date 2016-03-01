@@ -18,20 +18,15 @@
 -->
 <connector>
     <component name="confluence" package="org.wso2.carbon.connector">
-        <dependency component="confluence_administration"/>
-        <dependency component="confluence_attachments_management"/>
-        <dependency component="confluence_attachments_retrieval"/>
-        <dependency component="confluence_authentication"/>
-        <dependency component="confluence_blog"/>
-        <dependency component="confluence_config"/>
-        <dependency component="confluence_general"/>
-        <dependency component="confluence_labels"/>
-        <dependency component="confluence_pages_management"/>
-        <dependency component="confluence_pages_permissions"/>
-        <dependency component="confluence_pages_retrieval"/>
-        <dependency component="confluence_permissions"/>
-        <dependency component="confluence_space_retrieval"/>
-        <dependency component="confluence_user_management"/>
-        <description>confluence cloud connector</description>
+        <dependency component="confluence-config"/>
+        <dependency component="confluence-attachment"/>
+        <dependency component="confluence-content"/>
+        <dependency component="confluence-contentProperties"/>
+        <dependency component="confluence-labels"/>
+        <dependency component="confluence-operations"/>
+        <dependency component="confluence-space"/>
+        <dependency component="confluence-tasks"/>
+        <description>WSO2 ESB Connector Library for Confluence API.</description>
     </component>
+    <icon>icon/icon-small.gif</icon>
 </connector>

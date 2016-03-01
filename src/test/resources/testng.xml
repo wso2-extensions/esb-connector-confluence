@@ -8,11 +8,14 @@
         <listener class-name="org.wso2.carbon.automation.core.PlatformTestManager"/>
         <listener class-name="org.wso2.carbon.automation.core.PlatformReportManager"/>
     </listeners>
-    <test name="Confluence-Connector-Test" preserve-order="true" verbose="2">
+
+
+    <test name="confluence-Connector-Test" preserve-order="true" verbose="2">
         <packages>
             <package name="org.wso2.carbon.connector.integration.test.confluence"/>
         </packages>
     </test>
+
 </suite>
 
 
