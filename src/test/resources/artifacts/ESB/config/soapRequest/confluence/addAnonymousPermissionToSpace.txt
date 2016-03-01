@@ -1,4 +1,0 @@
-{
-"permission":"%s",
-"spaceKey":"%s"
-}
