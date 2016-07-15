@@ -1258,119 +1258,119 @@ public class ConfluenceConnectorIntegrationTest extends ConnectorIntegrationTest
         Assert.assertEquals(apiRestResponse.getBody().getInt("size"), 0);
     }
 
-//    /**
-//     * Positive test case for listLongRunningTasks method with mandatory parameters.
-//     *
-//     * @throws JSONException
-//     * @throws IOException
-//     */
-//    @Test(groups = {
-//            "wso2.esb"}, description = "confluence {listLongRunningTasks} integration test with mandatory parameters.")
-//    public void testListLongRunningTasksWithMandatoryParameters() throws IOException, JSONException {
-//
-//        esbRequestHeadersMap.put("Action", "urn:listLongRunningTasks");
-//
-//        RestResponse<JSONObject> esbRestResponse = sendJsonRestRequest(proxyUrl, "POST", esbRequestHeadersMap,
-//                "esb_listLongRunningTasks_mandatory.json");
-//        final JSONArray esbResponseArray = esbRestResponse.getBody().getJSONArray("results");
-//
-//        final String taskId = esbResponseArray.getJSONObject(0).getString("id");
-//        connectorProperties.setProperty("taskId", taskId);
-//
-//        final String apiEndPoint = apiUrl + "/longtask";
-//
-//        RestResponse<JSONObject> apiRestResponse = sendJsonRestRequest(apiEndPoint, "GET", apiRequestHeadersMap);
-//
-//        Assert.assertEquals(esbRestResponse.getBody().getString("size"), apiRestResponse.getBody().getString("size"));
-//    }
-//
-//    /**
-//     * Positive test case for listLongRunningTasks method with optional parameters.
-//     *
-//     * @throws JSONException
-//     * @throws IOException
-//     */
-//    @Test(groups = {
-//            "wso2.esb"}, description = "confluence {listLongRunningTasks} integration test with optional parameters.")
-//    public void testListLongRunningTasksWithOptionalParameters() throws IOException, JSONException {
-//
-//        esbRequestHeadersMap.put("Action", "urn:listLongRunningTasks");
-//
-//        RestResponse<JSONObject> esbRestResponse = sendJsonRestRequest(proxyUrl, "POST", esbRequestHeadersMap,
-//                "esb_listLongRunningTasks_optional.json");
-//
-//        final String apiEndPoint = apiUrl + "/longtask?limit=" + connectorProperties.getProperty("pageLimit")
-//                + "&start=" + connectorProperties.getProperty("pageStart");
-//
-//        RestResponse<JSONObject> apiRestResponse = sendJsonRestRequest(apiEndPoint, "GET", apiRequestHeadersMap);
-//
-//        Assert.assertEquals(esbRestResponse.getBody().getString("start"), apiRestResponse.getBody().getString("start"));
-//        Assert.assertEquals(esbRestResponse.getBody().getString("limit"), apiRestResponse.getBody().getString("limit"));
-//        Assert.assertEquals(esbRestResponse.getBody().getString("size"), apiRestResponse.getBody().getString("size"));
-//    }
-//
-//    /**
-//     * Test case: testListLongRunningTasksWithNegativeCase.
-//     * Status: Skipped.
-//     * Reason : No valid JSON response is returned.
-//     */
-//
-//    /**
-//     * Positive test case for getLongRunningTask method with mandatory parameters.
-//     *
-//     * @throws JSONException
-//     * @throws IOException
-//     */
-//    @Test(groups = {"wso2.esb"}, dependsOnMethods = {
-//            "testListLongRunningTasksWithMandatoryParameters"}, description = "confluence {getLongRunningTask} integration test with mandatory parameters.")
-//    public void testGetLongRunningTaskWithMandatoryParameters() throws IOException, JSONException {
-//
-//        esbRequestHeadersMap.put("Action", "urn:getLongRunningTask");
-//
-//        RestResponse<JSONObject> esbRestResponse = sendJsonRestRequest(proxyUrl, "POST", esbRequestHeadersMap,
-//                "esb_getLongRunningTask_mandatory.json");
-//
-//        final String apiEndPoint = apiUrl + "/longtask/" + connectorProperties.getProperty("taskId");
-//        RestResponse<JSONObject> apiRestResponse = sendJsonRestRequest(apiEndPoint, "GET", apiRequestHeadersMap);
-//
-//        Assert.assertEquals(esbRestResponse.getBody().getJSONObject("name").getString("translation"),
-//                apiRestResponse.getBody().getJSONObject("name").getString("translation"));
-//        Assert.assertEquals(esbRestResponse.getBody().getString("elapsedTime"),
-//                apiRestResponse.getBody().getString("elapsedTime"));
-//        Assert.assertEquals(esbRestResponse.getBody().getString("percentageComplete"),
-//                apiRestResponse.getBody().getString("percentageComplete"));
-//        Assert.assertEquals(esbRestResponse.getBody().getString("successful"),
-//                apiRestResponse.getBody().getString("successful"));
-//    }
-//
-//    /**
-//     * Test case: testGetLongRunningTaskWithOptionalParameters.
-//     * Status: Skipped.
-//     * Reason : Cannot assert optional parameter 'expand'. Response does not return expandable parameters.
-//     */
-//
-//    /**
-//     * Negative test case for getLongRunningTask method.
-//     *
-//     * @throws JSONException
-//     * @throws IOException
-//     */
-//    @Test(groups = {"wso2.esb"}, description = "confluence {getLongRunningTask} integration test with negative case.")
-//    public void testGetLongRunningTaskWithNegativeCase() throws IOException, JSONException {
-//
-//        esbRequestHeadersMap.put("Action", "urn:getLongRunningTask");
-//
-//        RestResponse<JSONObject> esbRestResponse = sendJsonRestRequest(proxyUrl, "POST", esbRequestHeadersMap,
-//                "esb_getLongRunningTask_negative.json");
-//
-//        String apiEndPoint = apiUrl + "/longtask/INVALID";
-//        RestResponse<JSONObject> apiRestResponse = sendJsonRestRequest(apiEndPoint, "GET", apiRequestHeadersMap);
-//
-//        Assert.assertEquals(esbRestResponse.getHttpStatusCode(), 500);
-//        Assert.assertEquals(esbRestResponse.getHttpStatusCode(), apiRestResponse.getHttpStatusCode());
-//        Assert.assertEquals(apiRestResponse.getBody().getString("message"),
-//                esbRestResponse.getBody().getString("message"));
-//    }
+    /**
+     * Positive test case for listLongRunningTasks method with mandatory parameters.
+     *
+     * @throws JSONException
+     * @throws IOException
+     */
+    @Test(groups = {
+            "wso2.esb"}, description = "confluence {listLongRunningTasks} integration test with mandatory parameters.")
+    public void testListLongRunningTasksWithMandatoryParameters() throws IOException, JSONException {
+
+        esbRequestHeadersMap.put("Action", "urn:listLongRunningTasks");
+
+        RestResponse<JSONObject> esbRestResponse = sendJsonRestRequest(proxyUrl, "POST", esbRequestHeadersMap,
+                "esb_listLongRunningTasks_mandatory.json");
+        final JSONArray esbResponseArray = esbRestResponse.getBody().getJSONArray("results");
+
+        final String taskId = esbResponseArray.getJSONObject(0).getString("id");
+        connectorProperties.setProperty("taskId", taskId);
+
+        final String apiEndPoint = apiUrl + "/longtask";
+
+        RestResponse<JSONObject> apiRestResponse = sendJsonRestRequest(apiEndPoint, "GET", apiRequestHeadersMap);
+
+        Assert.assertEquals(esbRestResponse.getBody().getString("size"), apiRestResponse.getBody().getString("size"));
+    }
+
+    /**
+     * Positive test case for listLongRunningTasks method with optional parameters.
+     *
+     * @throws JSONException
+     * @throws IOException
+     */
+    @Test(groups = {
+            "wso2.esb"}, description = "confluence {listLongRunningTasks} integration test with optional parameters.")
+    public void testListLongRunningTasksWithOptionalParameters() throws IOException, JSONException {
+
+        esbRequestHeadersMap.put("Action", "urn:listLongRunningTasks");
+
+        RestResponse<JSONObject> esbRestResponse = sendJsonRestRequest(proxyUrl, "POST", esbRequestHeadersMap,
+                "esb_listLongRunningTasks_optional.json");
+
+        final String apiEndPoint = apiUrl + "/longtask?limit=" + connectorProperties.getProperty("pageLimit")
+                + "&start=" + connectorProperties.getProperty("pageStart");
+
+        RestResponse<JSONObject> apiRestResponse = sendJsonRestRequest(apiEndPoint, "GET", apiRequestHeadersMap);
+
+        Assert.assertEquals(esbRestResponse.getBody().getString("start"), apiRestResponse.getBody().getString("start"));
+        Assert.assertEquals(esbRestResponse.getBody().getString("limit"), apiRestResponse.getBody().getString("limit"));
+        Assert.assertEquals(esbRestResponse.getBody().getString("size"), apiRestResponse.getBody().getString("size"));
+    }
+
+    /**
+     * Test case: testListLongRunningTasksWithNegativeCase.
+     * Status: Skipped.
+     * Reason : No valid JSON response is returned.
+     */
+
+    /**
+     * Positive test case for getLongRunningTask method with mandatory parameters.
+     *
+     * @throws JSONException
+     * @throws IOException
+     */
+    @Test(groups = {"wso2.esb"}, dependsOnMethods = {
+            "testListLongRunningTasksWithMandatoryParameters"}, description = "confluence {getLongRunningTask} integration test with mandatory parameters.")
+    public void testGetLongRunningTaskWithMandatoryParameters() throws IOException, JSONException {
+
+        esbRequestHeadersMap.put("Action", "urn:getLongRunningTask");
+
+        RestResponse<JSONObject> esbRestResponse = sendJsonRestRequest(proxyUrl, "POST", esbRequestHeadersMap,
+                "esb_getLongRunningTask_mandatory.json");
+
+        final String apiEndPoint = apiUrl + "/longtask/" + connectorProperties.getProperty("taskId");
+        RestResponse<JSONObject> apiRestResponse = sendJsonRestRequest(apiEndPoint, "GET", apiRequestHeadersMap);
+
+        Assert.assertEquals(esbRestResponse.getBody().getJSONObject("name").getString("translation"),
+                apiRestResponse.getBody().getJSONObject("name").getString("translation"));
+        Assert.assertEquals(esbRestResponse.getBody().getString("elapsedTime"),
+                apiRestResponse.getBody().getString("elapsedTime"));
+        Assert.assertEquals(esbRestResponse.getBody().getString("percentageComplete"),
+                apiRestResponse.getBody().getString("percentageComplete"));
+        Assert.assertEquals(esbRestResponse.getBody().getString("successful"),
+                apiRestResponse.getBody().getString("successful"));
+    }
+
+    /**
+     * Test case: testGetLongRunningTaskWithOptionalParameters.
+     * Status: Skipped.
+     * Reason : Cannot assert optional parameter 'expand'. Response does not return expandable parameters.
+     */
+
+    /**
+     * Negative test case for getLongRunningTask method.
+     *
+     * @throws JSONException
+     * @throws IOException
+     */
+    @Test(groups = {"wso2.esb"}, description = "confluence {getLongRunningTask} integration test with negative case.")
+    public void testGetLongRunningTaskWithNegativeCase() throws IOException, JSONException {
+
+        esbRequestHeadersMap.put("Action", "urn:getLongRunningTask");
+
+        RestResponse<JSONObject> esbRestResponse = sendJsonRestRequest(proxyUrl, "POST", esbRequestHeadersMap,
+                "esb_getLongRunningTask_negative.json");
+
+        String apiEndPoint = apiUrl + "/longtask/INVALID";
+        RestResponse<JSONObject> apiRestResponse = sendJsonRestRequest(apiEndPoint, "GET", apiRequestHeadersMap);
+
+        Assert.assertEquals(esbRestResponse.getHttpStatusCode(), 500);
+        Assert.assertEquals(esbRestResponse.getHttpStatusCode(), apiRestResponse.getHttpStatusCode());
+        Assert.assertEquals(apiRestResponse.getBody().getString("message"),
+                esbRestResponse.getBody().getString("message"));
+    }
 
     /**
      * Positive test case for listOperationRestrictions method with mandatory
