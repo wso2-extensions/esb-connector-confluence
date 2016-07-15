@@ -190,8 +190,7 @@
                 </case>
                 <case regex="urn:createSpace">
                     <confluence.createSpace>
-                        <descriptionRepresentation>{$ctx:descriptionRepresentation}
-                        </descriptionRepresentation>
+                        <descriptionRepresentation>{$ctx:descriptionRepresentation}</descriptionRepresentation>
                         <name>{$ctx:name}</name>
                         <descriptionValue>{$ctx:descriptionValue}</descriptionValue>
                         <key>{$ctx:key}</key>

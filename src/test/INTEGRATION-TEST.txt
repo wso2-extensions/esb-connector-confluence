@@ -4,27 +4,25 @@ Pre-requisites:
 
  - Maven 3.x
  - Java 1.6 or above
- - The org.wso2.esb.integration.integration-base project is required. The test suite has been configured to download this project automatically. If the automatic download fails, download the following project and compile it using the mvn clean install command to update your local repository:
-        https://github.com/wso2-extensions/esb-integration-base
 
 Tested Platform: 
 
- - Microsoft WINDOWS V-7
- - UBUNTU 13.04
- - WSO2 ESB 4.9.0
- - Java 1.7
- - Confluence 5.9.1
+ - Mac OSx 10.9
+ - WSO2 ESB 5.0.0-SNAPSHOT
 
 Steps to follow in setting integration test.
 
- 1. Download ESB 4.9.0 from official website.
+ 1. Download ESB 5.0.0-SNAPSHOT from official website. Extract the ESB and put "-XX:-UseSplitVerifier" under $JVM_MEM_OPTS into {ESB_HOME}/bin/wso2server.sh.
 
  2. Navigate to "https://www.atlassian.com/software/confluence/download/" URL and download Confluence. Use the below URL to setup Confluence.
       https://confluence.atlassian.com/doc/confluence-installation-guide-135681.html
       
- 3. If required add the X.509 certificate from "https://confluence.atlassian.com" to the client-truststore.jks of the ESB located in "<ESB_HOME>/repository/resources/security" directory
-    and wso2carbon.jks located in "<CONFLUENCE_CONNECTOR_HOME>/confluence-connector/confluence-connector-2.0.0/org.wso2.carbon.connector/src/test/resources/keystores/products".
-      
+ 3. If required add the X.509 certificate from "https://confluence.atlassian.com" to the client-truststore.jks of the ESB located in "<ESB_HOME>/repository/resources/security" directory by using the command 'keytool -importcert -file CERT_FILE_NAME -keystore client-truststore.jks -alias "CERT_NAME"'
+    and wso2carbon.jks located in "<CONFLUENCE_CONNECTOR_HOME>/confluence-connector/confluence-connector-2.0.0/org.wso2.carbon.connector/src/test/resources/keystores/products" by using the command 'keytool -importcert -file CERT_FILE_NAME -keystore client-truststore.jks -alias "CERT_NAME"'.
+
+      This command will import Confluence certificate into keystore.
+               To import the certificate give "wso2carbon" as password. Press "Y" to complete certificate import process.
+
  4. Prerequisites for Confluence Connector Integration Testing.
       i) Add a new user to Confluence account by using the below URL instructions. Keep the username and password for further reference.
          https://confluence.atlassian.com/doc/add-users-and-set-permissions-349635148.html
@@ -43,7 +41,7 @@ Steps to follow in setting integration test.
  
       NOTE: To obtian page ID (content ID), click page edit link and get page ID from browser URL.
  
- 5. Compress modified ESB as wso2esb-4.9.0.zip and copy that zip file in to location "<ESB_CONNECTOR_HOME>/repository/".
+ 5. Compress modified ESB as ESB 5.0.0-SNAPSHOT.zip and copy that zip file in to location "<ESB_CONNECTOR_HOME>/repository/".
  
  6. Update the Confluence properties file at location "<CONFLUENCE_CONNECTOR_HOME>/confluence-connector/confluence-connector-2.0.0/org.wso2.carbon.connector/src/test/resources/artifacts/ESB/connector/config" as below.
 
