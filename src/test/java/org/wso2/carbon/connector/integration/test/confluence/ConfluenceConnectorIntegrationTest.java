@@ -45,7 +45,7 @@ public class ConfluenceConnectorIntegrationTest extends ConnectorIntegrationTest
     @BeforeClass(alwaysRun = true)
     public void setEnvironment() throws Exception {
 
-        init("confluence-connector-2.0.1");
+        init("confluence-connector-2.0.2-SNAPSHOT");
 
         esbRequestHeadersMap.put("Content-Type", "application/json");
 
